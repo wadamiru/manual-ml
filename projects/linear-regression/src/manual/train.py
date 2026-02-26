@@ -1,5 +1,5 @@
 import numpy as np
-from .metrics import mse
+from metrics import mse
 
 def train(model, x, y, lr=0.01, epochs=1000, verbose=True):
     for e in range(epochs):
@@ -15,7 +15,7 @@ def train(model, x, y, lr=0.01, epochs=1000, verbose=True):
         model.w -= lr * dw
         model.b -= lr * db
 
-        if verbose and epoch % 100 == 0:
+        if verbose and e % 100 == 0:
             print(f"Epoch {e:4d} | Loss: {loss:.6f}")
 
     return model
